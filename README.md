@@ -40,4 +40,4 @@ Les contributions à ce projet sont bienvenues. Voici comment vous pouvez contri
 
 ## Licence
 
-Ce projet est distribué sous la Licence MIT. Voir le fichier `LICENSE` pour plus d'informations.
+Ce projet est distribué sous la Licence MIT. 
