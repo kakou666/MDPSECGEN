@@ -34,22 +34,42 @@ def genere_mdp(length, include_uppercase, include_lowercase, include_digits, inc
     random.shuffle(mdp) # Mélange
     return "".join(mdp)
 
-def main():
-    try:
-        length = int(input("Entrez la longueur du mot de passe désirée : "))
-    except ValueError:
-        print("Veuillez rentrer un entier naturel.")
-        return
-    include_uppercase = input("Inclure des majuscules? (o/n) : ").lower() == "o"
-    include_lowercase = input("Inclure des minuscules? (o/n) : ").lower() == "o"
-    include_digits = input("Inclure des chiffres? (o/n) : ").lower() == "o"
-    include_special = input("Inclure des caractères spéciaux? (o/n) : ").lower() == "o"
+def on_submit():
+    length = int(length_entry.get())
+    include_uppercase = uc.get()
+    include_lowercase = lc.get()
+    include_digits = dig.get()
+    include_special = sp.get()
 
     mdp = genere_mdp(length, include_uppercase, include_lowercase, include_digits, include_special)
+    result_label.config(text=f"Votre mot de passe généré est : {mdp}")
 
-    if mdp :
-        print(f"TADA : {mdp}")
+root = tk.Tk() #fenetre
+root.title("Générateur de Mot de Passe")
 
-if __name__ == "__main__":
-    main()
+tk.Label(root, text="Entrez la longueur du mot de passe :").pack()
+length_entry = tk.Entry(root)
+length_entry.pack()
+
+uc = tk.BooleanVar()
+tk.Checkbutton(root, text="Inclure des majuscules?", variable=uc).pack()
+
+lc = tk.BooleanVar()
+tk.Checkbutton(root, text="Inclure des minuscules?", variable=lc).pack()
+
+dig = tk.BooleanVar()
+tk.Checkbutton(root, text="Inclure des chiffres?", variable=dig).pack()
+
+sp = tk.BooleanVar()
+tk.Checkbutton(root, text="Inclure des caractères spéciaux?", variable=sp).pack()
+
+submit_button = tk.Button(root, text="Générer", command=on_submit)
+submit_button.pack()
+
+result_label = tk.Label(root, text="")
+result_label.pack()
+
+root.mainloop()
+
+
 
