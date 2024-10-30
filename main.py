@@ -46,27 +46,28 @@ def on_submit():
 
 root = tk.Tk() #fenetre
 root.title("Générateur de Mot de Passe")
+root.configure(bg='#ffcccc') # Fond rose pastel
 
-tk.Label(root, text="Entrez la longueur du mot de passe :").pack()
+tk.Label(root, text="Entrez la longueur du mot de passe :", bg='#ffcccc', fg='black').pack()
 length_entry = tk.Entry(root)
 length_entry.pack()
 
 uc = tk.BooleanVar()
-tk.Checkbutton(root, text="Inclure des majuscules?", variable=uc).pack()
+tk.Checkbutton(root, text="Inclure des majuscules?", variable=uc, bg='#ffcccc', selectcolor="#ffcccc", activebackground="#ffcccc").pack()
 
 lc = tk.BooleanVar()
-tk.Checkbutton(root, text="Inclure des minuscules?", variable=lc).pack()
+tk.Checkbutton(root, text="Inclure des minuscules?", variable=lc, bg='#ffcccc', selectcolor="#ffcccc", activebackground="#ffcccc").pack()
 
 dig = tk.BooleanVar()
-tk.Checkbutton(root, text="Inclure des chiffres?", variable=dig).pack()
+tk.Checkbutton(root, text="Inclure des chiffres?", variable=dig, bg='#ffcccc', selectcolor="#ffcccc", activebackground="#ffcccc").pack()
 
 sp = tk.BooleanVar()
-tk.Checkbutton(root, text="Inclure des caractères spéciaux?", variable=sp).pack()
+tk.Checkbutton(root, text="Inclure des caractères spéciaux?", variable=sp, bg='#ffcccc', selectcolor="#ffcccc", activebackground="#ffcccc").pack()
 
-submit_button = tk.Button(root, text="Générer", command=on_submit)
+submit_button = tk.Button(root, text="Générer", command=on_submit, bg='#ffcccc', fg='black', activebackground='#ffcccc', activeforeground='white')
 submit_button.pack()
 
-result_label = tk.Label(root, text="")
+result_label = tk.Label(root, text="", bg='#ffcccc')
 result_label.pack()
 
 root.mainloop()
