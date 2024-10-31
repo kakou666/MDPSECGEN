@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Générateur de Mot de Passe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Générateur de Mot de Passe</h1>
+    <form method="post">
+        <label for="length" id="labelLG">Entrez la longueur du mot de passe :</label>
+        <input type="text" id="length" name="length" placeholder="Length" required>
+
+        <label class="container">
+            <input type="checkbox" name="include_uppercase">
+            <div class="checkmark"></div>
+            Inclure des majuscules?
+        </label>
+
+        <label class="container">
+            <input type="checkbox" name="include_lowercase">
+            <div class="checkmark"></div>
+            Inclure des minuscules?
+        </label>
+
+        <label class="container">
+            <input type="checkbox" name="include_digits">
+            <div class="checkmark"></div>
+            Inclure des chiffres?
+        </label>
+
+        <label class="container">
+            <input type="checkbox" name="include_special">
+            <div class="checkmark"></div>
+            Inclure des caractères spéciaux?
+        </label>
+
+        <button type="submit">Générer</button>
+    </form>
+
+    {% if error_message %}
+        <p class="error">{{ error_message }}</p>
+    {% endif %}
+
+    {% if password %}
+        <p>Votre mot de passe généré est : {{ password }}</p>
+    {% endif %}
+</body>
+</html>
